@@ -1,5 +1,5 @@
 <template>
-  <div class="w-3/5 h-48 bg-yellow-400">
+  <div class="bg-yellow-400">
     <h1>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro fugit
       voluptatem provident animi dolorum commodi necessitatibus ipsum expedita

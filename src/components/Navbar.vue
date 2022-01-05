@@ -1,10 +1,10 @@
 <template>
   <nav class="flex flex-col justify-evenly items-center text-2xl font-bold text-white">
-      <a href="#">Accueil</a>
-      <a href="#">Entreprise</a>
-      <a href="#">Stagiaire</a>
-      <a href="#">Inscription</a>
-      <a href="#">Connexion</a>
+      <router-link to="/">Home</router-link>
+      <router-link to="/entreprise">Entreprise</router-link> 
+      <router-link to="/stagiaire">Stagiaire</router-link>
+      <router-link to="/register">Inscription</router-link>
+      <router-link to="/login">Connexion</router-link>
   </nav>
 </template>
 
