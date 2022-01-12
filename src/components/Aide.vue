@@ -17,11 +17,11 @@
 
       <h1>Entreprise</h1>
 
-    <div class="flex flex-col items-start p-14">
+    <div class="flex flex-col items-start space-y-10 p-14">
 
-      <div class="">
-        <p>Comment rechercher une entreprise ?</p>
-        <div class="grow bg-gray-600 rounded">
+      <div class="flex flex-col ">
+        <h2 class="self-start">Comment rechercher une entreprise ?</h2>
+        <div class=" bg-gray-200 p-5 rounded text-left">
           <p>
             Si vous voulez rechercher une entreprise, vous devez aller sur la
             page "Entreprise", pour cliquer sur.... .
@@ -33,9 +33,9 @@
         </div>
       </div>
 
-      <div class="">
-        <p>Comment ajouter une entreprise ?</p>
-        <div class="bg-gray-600 rounded">
+     <div class="flex flex-col ">
+        <h2 class="self-start">Comment ajouter une entreprise ?</h2>
+        <div class="bg-gray-200 p-5 rounded text-left">
           <p>
             Pour ajouter une entreprise, rendez-vous sur la page "Entreprise", où vous devez cliquer sur le bouton concernant l'entreprise. Toutes les informations ne sont pas obligatoires,
             mais il est conseillé d'en fournir référencées.
@@ -43,9 +43,9 @@
         </div>
       </div>
 
-      <div class="">
-        <p>Comment afficher ou enlever une information concernant l'entreprise ?</p>
-        <div class="bg-gray-600 rounded">
+      <div class="flex flex-col ">
+       <h2 class="self-start">Comment afficher ou enlever une information concernant l'entreprise ?</h2>
+        <div class="bg-gray-200 p-5 rounded text-left">
           <p>
            En allant sur la page "Entreprise", vous pouvez voir les entreprises déjà référencées. Vous pouvez alors... cependant les afficher grâce à la liste déroulante : choisissez l'information que vous voulez afficher.
            Pour les informations, il vous suffit de cliquer sur le moins situé à l'entête de la colonne représentant l'information en question.
@@ -53,9 +53,9 @@
         </div>
       </div>
 
-      <div class="">
-        <p>N'y a-t-il pas une autre solution pour voir ces informations ?</p>
-        <div class="bg-gray-600 rounded">
+      <div class="flex flex-col ">
+        <h2 class="self-start">N'y a-t-il pas une autre solution pour voir ces informations ?</h2>
+        <div class="bg-gray-200 p-5 rounded text-left">
           <p>
             Bien sûr, vous pouvez cliquer sur l'icône Oeil pour voir toutes les informations concernant l'entreprise qui vous intéresse.
           </p>
