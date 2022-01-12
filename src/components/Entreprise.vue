@@ -40,6 +40,7 @@
             border-2 border-gray-300
             transition
             hover:bg-gray-800 hover:text-white hover:border-gray-800
+            focus:border-white
           "
           >Ajouter une entreprise</Button
         >
@@ -48,7 +49,7 @@
 
     <hr class="m-6" />
 
-    <table class="table-fixed mt-2">
+    <table class="table-fixed mt-2 text-black">
       <thead class="">
         <tr class="">
           <th>Opérations</th>
@@ -78,7 +79,7 @@
                   viewBox="0 0 122.88 83.78"
                   style="enable-background: new 0 0 122.88 83.78"
                   xml:space="preserve"
-                  class="bg-white rounded w-8"
+                  class="rounded w-8"
                 >
                   <g>
                     <path

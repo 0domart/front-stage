@@ -1,6 +1,6 @@
 <template>
   <Navbar class="fixed h-full w-1/5 top-0 left-0 bg-gray-800 text-white"/>
-    <router-view class="absolute w-4/5 bg-green-600 top-0 right-0"/>
+    <router-view class="absolute w-4/5 top-0 right-0"/>
 </template>
 
 <script>
