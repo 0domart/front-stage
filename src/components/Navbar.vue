@@ -1,6 +1,6 @@
 <template>
   <nav class="flex flex-col justify-evenly items-center text-2xl font-bold text-white">
-      <router-link to="/">Home</router-link>
+      <router-link class=""  to="/">Home</router-link>
       <router-link to="/entreprise">Entreprise</router-link> 
       <router-link to="/stagiaire">Stagiaire</router-link>
       <router-link to="/aide" v-show="connected">Aide</router-link>

@@ -1,9 +1,6 @@
 <template>
-  
-  <main class="relative w-full">
-    <Navbar class="fixed bg-gray-800 text-white w-1/5 h-screen"/>
-    <router-view class="absolute w-4/5 inset-y-0 right-0"/>
-  </main>
+  <Navbar class="fixed h-full w-1/5 top-0 left-0 bg-gray-800 text-white"/>
+    <router-view class="absolute w-4/5 bg-green-600 top-0 right-0"/>
 </template>
 
 <script>

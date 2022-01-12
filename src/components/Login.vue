@@ -1,51 +1,60 @@
 <template>
-  <div class="bg-yellow-400">
-    <h1>
-      Connexion
-    </h1>
-      <input v-model="login" type="text">
-      <input v-model="password" type="password">
+  <div class="p-10 flex flex-col justify-center items-center h-full">
+    <h1>Connexion</h1>
+
+    <div class="bg-gray-300 rounded p-10 flex flex-col justify-around items-end space-y-4">
+      <div class="inline">
+        <label for="login">Login</label>
+        <input v-model="login" type="text" />
+      </div>
+
+      <div class="inline">
+        <label for="password">Password</label>
+        <input v-model="password" type="password" />
+      </div>
       <button @click="tryLogin">LOGIN</button>
       <h3 v-show="accesRefused">Accès refusé</h3>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "Login",
-  data(){
+  data() {
     return {
-      login: '',
-      password:'',
+      login: "",
+      password: "",
       accesRefused: false,
-    }
+    };
   },
   methods: {
     async tryLogin() {
-    console.log('test');
+      console.log("test");
       try {
         const response = await axios.get(
-          "http://localhost:8080/stage/login/" + this.login + "&" + this.password
+          "http://localhost:8080/stage/login/" +
+            this.login +
+            "&" +
+            this.password
         );
-        if(response.data.statut == "refused"){
-          console.log('Accès refusé');
+        if (response.data.statut == "refused") {
+          console.log("Accès refusé");
           this.accesRefused = true;
-        } 
-        else {
+        } else {
           this.accesRefused = false;
           localStorage.clear();
-          localStorage.setItem('statut', response.data.statut);
-          localStorage.setItem('userName', response.data.nameUser)
-          this.$router.push('/');
+          localStorage.setItem("statut", response.data.statut);
+          localStorage.setItem("userName", response.data.nameUser);
+          this.$router.push("/");
         }
       } catch (error) {
         console.log(error);
       }
     },
   },
-  
 };
 </script>
 
