@@ -4,6 +4,10 @@
       Entreprise
     </h1>
 
+    <Button>Rechercher une entreprise</Button>
+
+    <Button>Ajouter une entreprise</Button>
+
     <table class="table table-striped table-bordered">
             <thead>
                 <tr>
