@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HelloWorld from '../components/HelloWorld.vue'
 import Stagiaire from '../components/Stagiaire.vue'
 import Entreprise from '../components/Entreprise.vue'
+import EntrepriseDescription from '../components/EntrepriseDescription.vue'
 import Aide from '../components/Aide.vue'
 import Login from '../components/Login.vue'
 
@@ -18,6 +19,14 @@ const routes = [
     path: '/entreprise',
     name: 'Entreprise',
     component: Entreprise,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/entreprise/:id',
+    name: 'EntrepriseDescription',
+    component: EntrepriseDescription,
     meta: {
       requiresAuth: true
     }

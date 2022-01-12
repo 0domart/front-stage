@@ -64,11 +64,11 @@
         <tr
           class="border-2 rounded border-gray-800"
           v-for="entreprise in entreprises"
-          :key="entreprise.id"
+          v-bind:key="entreprise.num_entreprise"
         >
           <td class="">
             <div class="flex justify-around items-center">
-              <a href="#">
+              <a @click="descriptionEntreprise(entreprise.num_entreprise)" class="cursor-pointer">
                 <svg
                   version="1.1"
                   id="Layer_1"
@@ -114,7 +114,7 @@
             </p>
           </td>
           <td>
-            <a href="{{entreprise.stage}}">
+            <a @click="redirectWebsite(entreprise.num_entreprise)" class="cursor-pointer">
               <svg
                 id="Layer_1"
                 data-name="Layer 1"
@@ -154,6 +154,12 @@ export default {
   },
 
   methods: {
+    redirectWebsite(url){
+      window.location.href = url;
+    },
+    descriptionEntreprise(id){
+      this.$router.push("/entreprise/" + id);
+    },
     async getEntreprises() {
       try {
         const response = await axios.get(
