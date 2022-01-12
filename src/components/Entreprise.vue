@@ -18,6 +18,7 @@
         </svg>
         <input
           type="text"
+          v-model="keyword"
           class="
             p-3
             pl-10
@@ -63,7 +64,7 @@
       <tbody class="">
         <tr
           class="border-2 rounded border-gray-800"
-          v-for="entreprise in entreprises"
+          v-for="entreprise in filteredList"
           v-bind:key="entreprise.num_entreprise"
         >
           <td class="">
@@ -114,7 +115,7 @@
             </p>
           </td>
           <td>
-            <a @click="redirectWebsite(entreprise.num_entreprise)" class="cursor-pointer">
+            <a @click="redirectWebsite(entreprise.siteEntreprise)" class="cursor-pointer">
               <svg
                 id="Layer_1"
                 data-name="Layer 1"
@@ -145,8 +146,16 @@ export default {
 
   data() {
     return {
+      keyword: '',
       entreprises: [],
     };
+  },
+  computed: {
+    filteredList() {
+      return this.entreprises.filter((samsung) => {
+        return this.keyword.toLowerCase().split(' ').every(v => samsung.raisonSociale.toLowerCase().includes(v));
+      });
+    }
   },
 
   created() {
@@ -155,7 +164,7 @@ export default {
 
   methods: {
     redirectWebsite(url){
-      window.location.href = url;
+      window.open(url, '_blank');
     },
     descriptionEntreprise(id){
       this.$router.push("/entreprise/" + id);
