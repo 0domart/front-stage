@@ -113,7 +113,7 @@
             </p>
           </td>
           <td>
-            <a href="{{entreprise.stage}}">
+            <a @click="redirectWebsite(entreprise.siteEntreprise)" class="cursor-pointer">
               <svg
                 id="Layer_1"
                 data-name="Layer 1"
@@ -153,6 +153,9 @@ export default {
   },
 
   methods: {
+    redirectWebsite(url){
+      window.location.href = url;
+    },
     async getEntreprises() {
       try {
         const response = await axios.get(
