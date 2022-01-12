@@ -1,9 +1,8 @@
 <template>
-<div class="bg-yellow-400">
-    <h1>Stage BTS</h1>
+<div class="h-full flex justify-center items-center">
+    <h1>Stage BTS - </h1><br>
     <h2>Bienvenue sur la page de gestion des stages</h2>
 </div>
-
 </template>
 
 <script>

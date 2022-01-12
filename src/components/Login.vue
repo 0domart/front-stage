@@ -1,18 +1,18 @@
 <template>
   <div class="p-10 flex flex-col justify-center items-center h-full">
-    <h1>Connexion</h1>
-
-    <div class="bg-gray-300 rounded p-10 flex flex-col justify-around items-end space-y-4">
-      <div class="inline">
-        <label for="login">Login</label>
-        <input v-model="login" type="text" />
+    <div class="shadow-xl bg-gray-300 rounded w-96 p-10 flex flex-col space-y-6">
+      <h1 class="font-bold">Connexion</h1>
+      <div class="flex flex-col justify-start space-y-2">
+        <label class="self-start" for="login">Login</label>
+        <input class="rounded p-2" v-model="login" type="text" />
       </div>
 
-      <div class="inline">
-        <label for="password">Password</label>
-        <input v-model="password" type="password" />
+      <div class="flex flex-col justify-start space-y-2">
+        <label class="self-start" for="password">Password</label>
+        <input class="rounded p-2" v-model="password" type="password" />
       </div>
-      <button @click="tryLogin">LOGIN</button>
+
+      <button class="text-gray-500 border-2 p-4 border-gray-500 rounded transition hover:bg-gray-500 hover:text-white"  @click="tryLogin">LOGIN</button>
       <h3 v-show="accesRefused">Accès refusé</h3>
     </div>
   </div>
@@ -46,14 +46,16 @@ export default {
         } else {
           this.accesRefused = false;
           localStorage.clear();
-          localStorage.setItem('statut', response.data.statut);
-          localStorage.setItem('userName', response.data.nameUser);
-          window.dispatchEvent(new CustomEvent('oh', {
-            detail: {
-              storage: response.data.statut
-            }
-          }));
-          this.$router.push('/');
+          localStorage.setItem("statut", response.data.statut);
+          localStorage.setItem("userName", response.data.nameUser);
+          window.dispatchEvent(
+            new CustomEvent("oh", {
+              detail: {
+                storage: response.data.statut,
+              },
+            })
+          );
+          this.$router.push("/");
         }
       } catch (error) {
         console.log(error);
