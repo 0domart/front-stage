@@ -56,7 +56,7 @@
           <th>Responsable</th>
           <th>Adresse</th>
           <th>Site</th>
-          <th>Spécialité</th>
+          <th class="pl-6">Spécialité</th>
         </tr>
       </thead>
       <tbody class="">
@@ -129,7 +129,7 @@
             </a>
           </td>
           
-          <td></td>
+          <td><div v-for="spec in entreprise.specialite" :key="spec.num_classe"><p>{{spec.libelle}}</p></div></td>
         </tr>
       </tbody>
     </table>

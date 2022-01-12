@@ -6,7 +6,7 @@
       <router-link to="/aide" v-show="connected">Aide</router-link>
       <router-link to="/register" v-show="!connected">Inscription</router-link>
       <router-link to="/login" v-show="!connected">Connexion</router-link>
-      <router-link to="/login" @click="connected=false" v-show="connected">Deconnexion</router-link>
+      <router-link to="/login" @click="hh" v-show="connected">Deconnexion</router-link>
   </nav>
 </template>
 
@@ -20,11 +20,26 @@ export default {
       connected: false,
     };
   },
+  methods:{
+    hh(){
+      localStorage.clear();
+      window.dispatchEvent(new CustomEvent('oh', {
+        detail: {
+          storage: ""
+        }
+      }));
+    }
+  },
   created(){
-    window.addEventListener('storage', (event) => {
+    window.addEventListener('oh', (event) => {
       console.log('change');
       console.log(event);
-      this.connected = true;
+      if(event.detail.storage == "etudiant" || event.detail.storage == "professeur"){
+        this.connected = true;
+      }
+      else {
+        this.connected = false;
+      }
     });
   }
 };

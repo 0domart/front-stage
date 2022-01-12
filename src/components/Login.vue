@@ -46,9 +46,14 @@ export default {
         } else {
           this.accesRefused = false;
           localStorage.clear();
-          localStorage.setItem("statut", response.data.statut);
-          localStorage.setItem("userName", response.data.nameUser);
-          this.$router.push("/");
+          localStorage.setItem('statut', response.data.statut);
+          localStorage.setItem('userName', response.data.nameUser);
+          window.dispatchEvent(new CustomEvent('oh', {
+            detail: {
+              storage: response.data.statut
+            }
+          }));
+          this.$router.push('/');
         }
       } catch (error) {
         console.log(error);
