@@ -1,7 +1,8 @@
 <template>
-  <main class="flex w-full justify-between">
-    <Navbar class="bg-gray-800 text-white w-1/5 h-screen"/>
-    <router-view class="flex w-4/5 items-center"/>
+  
+  <main class="relative w-full">
+    <Navbar class="fixed bg-gray-800 text-white w-1/5 h-screen"/>
+    <router-view class="absolute w-4/5 inset-y-0 right-0"/>
   </main>
 </template>
 
