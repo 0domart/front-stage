@@ -37,7 +37,12 @@ export default {
           this.accesRefused = false;
           localStorage.clear();
           localStorage.setItem('statut', response.data.statut);
-          localStorage.setItem('userName', response.data.nameUser)
+          localStorage.setItem('userName', response.data.nameUser);
+          window.dispatchEvent(new CustomEvent('oh', {
+            detail: {
+              storage: response.data.statut
+            }
+          }));
           this.$router.push('/');
         }
       } catch (error) {
