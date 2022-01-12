@@ -6,6 +6,7 @@
       <input v-model="login" type="text">
       <input v-model="password" type="password">
       <button @click="tryLogin">LOGIN</button>
+      <h3 v-show="accesRefused">Accès refusé</h3>
   </div>
 </template>
 
@@ -18,6 +19,7 @@ export default {
     return {
       login: '',
       password:'',
+      accesRefused: false,
     }
   },
   methods: {
@@ -27,9 +29,17 @@ export default {
         const response = await axios.get(
           "http://localhost:8080/stage/login/" + this.login + "&" + this.password
         );
-
-        console.log(response.data);
-        this.$router.push('Stagiaire');
+        if(response.data.statut == "refused"){
+          console.log('Accès refusé');
+          this.accesRefused = true;
+        } 
+        else {
+          this.accesRefused = false;
+          localStorage.clear();
+          localStorage.setItem('statut', response.data.statut);
+          localStorage.setItem('userName', response.data.nameUser)
+          this.$router.push('/');
+        }
       } catch (error) {
         console.log(error);
       }

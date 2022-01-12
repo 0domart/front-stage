@@ -1,7 +1,7 @@
 <template>
   <div class="bg-yellow-400">
     <h1>
-      Entreprise
+      Entreprises
     </h1>
 
     <Button>Rechercher une entreprise</Button>

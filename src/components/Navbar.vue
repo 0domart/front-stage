@@ -3,8 +3,10 @@
       <router-link to="/">Home</router-link>
       <router-link to="/entreprise">Entreprise</router-link> 
       <router-link to="/stagiaire">Stagiaire</router-link>
-      <router-link to="/register">Inscription</router-link>
-      <router-link to="/login">Connexion</router-link>
+      <router-link to="/aide" v-show="connected">Aide</router-link>
+      <router-link to="/register" v-show="!connected">Inscription</router-link>
+      <router-link to="/login" v-show="!connected">Connexion</router-link>
+      <router-link to="/login" @click="connected=false" v-show="connected">Deconnexion</router-link>
   </nav>
 </template>
 
@@ -12,6 +14,19 @@
 <script>
 export default {
   name: "Navbar",
+
+ data() {
+    return {
+      connected: false,
+    };
+  },
+  created(){
+    window.addEventListener('storage', (event) => {
+      console.log('change');
+      console.log(event);
+      this.connected = true;
+    });
+  }
 };
 </script>
 

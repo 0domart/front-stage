@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-yellow-400">
+<div class="bg-yellow-400">
     <h1>Stage BTS</h1>
     <h2>Bienvenue sur la page de gestion des stages</h2>
-  </div>
+</div>
 
 </template>
 

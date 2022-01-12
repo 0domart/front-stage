@@ -1,17 +1,64 @@
 <template>
   <div class="bg-yellow-400">
     <h1>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro fugit
-      voluptatem provident animi dolorum commodi necessitatibus ipsum expedita
-      quod possimus quae et assumenda laudantium aspernatur facere explicabo
-      modi, at dolor.
+      Stagiaires
     </h1>
+
+    <Button>Rechercher une entreprise</Button>
+
+    <Button>Ajouter une entreprise</Button>
+
+    <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Opérations</th>
+                    <th>Etudiant</th>
+                    <th>Entreprises</th>
+                    <th>Professeur</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="stage in stages" :key="stage.id">
+                    <td></td>
+                    <td>{{entreprise.raisonSociale}}</td>
+                    <td>{{entreprise.nomResp}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "Stagiaire",
+
+  data() {
+    return {
+      stages: [],
+    };
+  },
+
+  created() {
+    this.getStagiaires();
+  },
+
+  methods: {
+    async getStagiaires() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8080/stage/etudiant/all"
+        );
+
+        this.entreprises = response.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
 };
 </script>
 
