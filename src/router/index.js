@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HelloWorld from '../components/HelloWorld.vue'
 import Stagiaire from '../components/Stagiaire.vue'
+import EtudiantDescription from '../components/EtudiantDescription.vue'
+import CreerEtudiant from '../components/CreerEtudiant.vue'
 import Entreprise from '../components/Entreprise.vue'
 import EntrepriseDescription from '../components/EntrepriseDescription.vue'
 import Aide from '../components/Aide.vue'
@@ -43,6 +45,22 @@ const routes = [
     path: '/stagiaire',
     name: 'Stagiaire',
     component: Stagiaire,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/etudiant/:id',
+    name: 'EtudiantDescription',
+    component: EtudiantDescription,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/creerEtudiant',
+    name: 'CreerEtudiant',
+    component: CreerEtudiant,
     meta: {
       requiresAuth: true
     }
