@@ -210,7 +210,6 @@ export default {
   },
 
   methods: {
-<<<<<<< HEAD
     ajouterEntreprise(){
       this.$router.push("/entreprise-creation/");
     },
@@ -219,10 +218,8 @@ export default {
     },
     redirectWebsite(url){
       window.open(url, '_blank');
-=======
     redirectWebsite(url) {
       window.open(url, "_blank");
->>>>>>> 7e4d96e47dc5a41a4a57ec359ea7c97bcd1790ee
     },
     descriptionEntreprise(id) {
       this.$router.push("/entreprise/" + id);
