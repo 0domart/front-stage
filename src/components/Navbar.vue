@@ -1,12 +1,12 @@
 <template>
-  <nav class="flex flex-col justify-evenly items-center text-2xl font-bold text-white">
-      <router-link class=""  to="/">Accueil</router-link>
-      <router-link to="/entreprise">Entreprise</router-link> 
-      <router-link to="/stagiaire">Stagiaire</router-link>
-      <router-link to="/aide" v-show="connected">Aide</router-link>
-      <router-link to="/register" v-show="!connected">Inscription</router-link>
-      <router-link to="/login" v-show="!connected">Connexion</router-link>
-      <router-link to="/login" @click="hh" v-show="connected">Deconnexion</router-link>
+  <nav class="flex flex-col justify-around text-2xl font-bold text-white">
+      <router-link class="p-10 hover:bg-gray-600 transition"  to="/">Accueil</router-link>
+      <router-link class="p-10 hover:bg-gray-600 transition" to="/entreprise">Entreprise</router-link> 
+      <router-link class="p-10 hover:bg-gray-600 transition" to="/stagiaire">Stagiaire</router-link>
+      <router-link class="p-10 hover:bg-gray-600 transition" to="/aide" v-show="connected">Aide</router-link>
+      <router-link class="p-10 hover:bg-gray-600 transition" to="/register" v-show="!connected">Inscription</router-link>
+      <router-link class="p-10 hover:bg-gray-600 transition" to="/login" v-show="!connected">Connexion</router-link>
+      <router-link class="p-10 hover:bg-gray-600 transition" to="/login" @click="hh" v-show="connected">Deconnexion</router-link>
   </nav>
 </template>
 

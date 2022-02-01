@@ -52,7 +52,7 @@
 
     <table class="table-fixed mt-2 text-black">
       <thead class="">
-        <tr class="">
+        <tr>
           <th>Opérations</th>
           <th>Entreprise</th>
           <th>Responsable</th>
@@ -63,7 +63,7 @@
       </thead>
       <tbody class="">
         <tr
-          class="border-2 rounded border-gray-800"
+          class="border-2 transition hover:bg-blue-100 rounded border-gray-800"
           v-for="entreprise in filteredList"
           v-bind:key="entreprise.num_entreprise"
         >

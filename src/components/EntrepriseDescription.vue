@@ -1,35 +1,55 @@
 <template>
-  <div class="bg-yellow-400">
-    <h1>
-      Entreprise Description
-    </h1>
+  <div class="h-full text-left p-10">
+    <div class="text-center pb-10 mb-10 border-b-2 border-gray-800">
+      <h1 class="font-bold text-3xl">{{ entreprise.raisonSociale }}</h1>
+    </div>
 
-    <h2>Entrée</h2>
+    <h2 class="text-2xl font-bold py-2">Entrée</h2>
+    <div class="grid grid-cols-2 gap-5 pb-10 border-b-2 border-gray-800">
+      <div class="p-4 bg-gray-100 border-2 border-gray-600 rounded-lg">
+        <h3 class="font-bold">Information</h3>
+        <p>Nom de l'entreprise: {{ entreprise.raisonSociale }}</p>
+        <p>Nom du contact: {{ entreprise.nomContact }}</p>
+        <p>Nom du responsable: {{ entreprise.nomResp }}</p>
+      </div>
 
-    <h3>Informations</h3>
-    <p>Nom de l'entreprise : {{entreprise.raisonSociale}}</p>
-    <p>Nom du contact : {{entreprise.nomContact}}</p>
-    <p>Nom du responsable : {{entreprise.nomResp}}</p>
+      <div class="p-4 bg-gray-100 border-2 border-gray-600 rounded-lg">
+        <h3 class="font-bold">Divers</h3>
+        <p>Observation: {{ entreprise.observation }}</p>
+        <p>URL de site: {{ entreprise.siteEntreprise }}</p>
+        <p>Niveau: {{ entreprise.niveau }}</p>
+        <p>Spécialité:</p>
+        <ul v-for="spec in entreprise.specialite" :key="spec.num_classe">
+          <li>{{ spec.libelle }}</li>
+        </ul>
+      </div>
 
-    <h3>Divers</h3>
-    <p>Observation : {{entreprise.observation}}</p>
-    <p>Url du site : {{entreprise.siteEntreprise}}</p>
-    <p>Niveau : {{entreprise.niveau}}</p>
-    <div v-for="spec in entreprise.specialite" :key="spec.num_classe"><p>{{spec.libelle}}</p></div>
+      <div class="p-4 bg-gray-100 border-2 border-gray-600 rounded-lg">
+        <h3 class="font-bold">Contact</h3>
 
-    <h3>Contact</h3>
-    <p>Rue : {{entreprise.rueEntreprise}}</p>
-    <p>Code postal : {{entreprise.cpEntreprise}}</p>
-    <p>Ville : {{entreprise.villeEntreprise}}</p>
-    <p>Téléphone : {{entreprise.telEntreprise}}</p>
-    <p>Fax : {{entreprise.faxEntreprise}}</p>
-    <p>Email : {{entreprise.email}}</p>
+        <p>Rue: {{ entreprise.rueEntreprise }}</p>
+        <p>Code Postal: {{ entreprise.cpEntreprise }}</p>
+        <p>Ville: {{ entreprise.villeEntreprise }}</p>
+        <p>Téléphone: {{ entreprise.telEntreprise }}</p>
+        <p>Fax: {{ entreprise.faxEntreprise }}</p>
+        <p>Email: {{ entreprise.email }}</p>
+      </div>
+    </div>
 
+    <div></div>
+
+    <div>
+      <h2 class="text-2xl font-bold py-2">Stage</h2>
+    </div>
+
+    <p>opération</p>
+    <p>Etudiant</p>
+    <p>projet</p>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "EntrepriseDescription",

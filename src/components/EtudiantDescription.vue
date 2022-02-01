@@ -1,22 +1,84 @@
 <template>
-  <div class="bg-yellow-400">
-    <h1>
-      Informations concernant l'étudiant
-    </h1>
+  <div
+    class="
+      bg-yellow-400
+      p-10
+      h-full
+      flex flex-col
+      items-center
+      space-y-20
+    "
+  >
+    <h1 class="text-3xl font-bold">Informations concernant l'étudiant</h1>
+
+    <form class="bg-gray-100 border-2 border-gray-900 rounded-xl flex space-x-10 p-10">
+      <div class="flex flex-col space-y-5">
+        <label class="p-3 flex-grow text-left" for="nomEtudiant">Nom</label>
+        <label class=" p-3 flex-grow text-left" for="prenomEtudiant">Prénom</label>
+        <label class=" p-3 flex-grow text-left" for="login">Nom d'utilisateur</label>
+        <label class=" p-3 flex-grow text-left" for="password">Mot de passe</label>
+        <label class=" p-3 flex-grow text-left" for="dateObtention">Date d'obtention du BTS (JJ-MM-AAAA)</label>
+        <label class=" p-3 flex-grow text-left" for="classe">Classe</label>
+      </div>
 
 
-    <p>Nom : {{etudiant.nomEtudiant}}</p>
-    <p>Prénom : {{etudiant.prenomEtudiant}}</p>
-    <p>Nom d'utilisateur (8 caractères)* : {{etudiant.login}}</p>
-    <p>Mot de passe (entre 8 et 30 caractères)* : {{etudiant.mdp}}</p>
-    <p>Date d'obtention du BTS (AAAA-MM-JJ) : {{etudiant.siteEntreprise}}</p>
-    <p>Classe : {{etudiant.numClasse}}</p>
+<div class="flex flex-col space-y-5">
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="nomEtudiant"
+          v-model="nomEtudiant"
+          placeholder="{{etudiant.nomEtudiant}}"
+        />
 
+        
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="prenomEtudiant"
+          v-model="nomEtudiant"
+          placeholder="{{etudiant.nomEtudiant}}"
+        />
+
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="login"
+          v-model="nomEtudiant"
+          placeholder="{{etudiant.nomEtudiant}}"
+        />
+
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="password"
+          v-model="nomEtudiant"
+          placeholder="{{etudiant.nomEtudiant}}"
+        />
+
+
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="date"
+          id="dateObtention"
+          v-model="nomEtudiant"
+          placeholder="{{etudiant.nomEtudiant}}"
+        />
+
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="classe"
+          v-model="nomEtudiant"
+          placeholder="{{etudiant.nomEtudiant}}"
+        />
+</div>
+    </form>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   name: "EtudiantDescription",
@@ -24,6 +86,11 @@ export default {
   data() {
     return {
       etudiant: [],
+      nomEtudiant: "",
+      prenomEtudiant: "",
+      username: "",
+      classe: "",
+      dateObtention: "",
     };
   },
 
