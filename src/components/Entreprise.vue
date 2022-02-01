@@ -130,7 +130,7 @@
               <a
                 v-if="isProfesseur"
                 class="p-2"
-                href="#"
+                @click="supprimerEntreprise(entreprise.num_entreprise)"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -230,6 +230,12 @@ export default {
     },
     descriptionEntreprise(id) {
       this.$router.push("/entreprise/" + id);
+    },
+    async supprimerEntreprise(id){
+        await axios.delete(
+          "http://localhost:8080/stage/entreprise/" + id);
+        
+        await this.getEntreprises();
     },
     async getEntreprises() {
       try {
