@@ -1,59 +1,58 @@
 <template>
   <div
     class="
-      bg-yellow-400
       p-10
-      h-full
+      min-h-full
       flex flex-col
       items-center
-      space-y-20
+      space-y-5
     "
   >
     <h1 class="text-3xl font-bold">Modification de l'entreprise</h1>
 
-    <form class="bg-gray-100 border-2 border-gray-900 rounded-xl flex space-x-10 p-10">
-      <div class="flex flex-col space-y-5">
-        <label class="p-3 flex-grow text-left" for="nomEntreprise">Nom de l'entreprise</label>
-        <label class=" p-3 flex-grow text-left" for="nomContact">Nom du contact</label>
-        <label class=" p-3 flex-grow text-left" for="resp">Nom du responsable</label>
-        <label class=" p-3 flex-grow text-left" for="rue">Rue</label>
-        <label class=" p-3 flex-grow text-left" for="codePostal">Code postal</label>
-        <label class=" p-3 flex-grow text-left" for="ville">Ville</label>
+    <form class="bg-yellow-100 border-2 border-gray-900 rounded-xl flex space-x-5 p-16 shadow-xl">
+      <div class="flex flex-col">
+        <label class="p-2 flex-grow text-left" for="nomEntreprise">Nom de l'entreprise</label>
+        <label class=" p-2 flex-grow text-left" for="nomContact">Nom du contact</label>
+        <label class=" p-2 flex-grow text-left" for="resp">Nom du responsable</label>
+        <label class=" p-2 flex-grow text-left" for="rue">Rue</label>
+        <label class=" p-2 flex-grow text-left" for="codePostal">Code postal</label>
+        <label class=" p-2 flex-grow text-left" for="ville">Ville</label>
         
-        <label class="p-3 flex-grow text-left" for="tel">Téléphone</label>
-        <label class=" p-3 flex-grow text-left" for="fax">Fax</label>
-        <label class=" p-3 flex-grow text-left" for="email">Email</label>
-        <label class=" p-3 flex-grow text-left" for="observation">Observation</label>
-        <label class=" p-3 flex-grow text-left" for="url">url</label>
-        <label class=" p-3 flex-grow text-left" for="niveau">Niveau</label>
-        <label class=" p-3 flex-grow text-left" for="spec">Specialité</label>
+        <label class="p-2 flex-grow text-left" for="tel">Téléphone</label>
+        <label class=" p-2 flex-grow text-left" for="fax">Fax</label>
+        <label class=" p-2 flex-grow text-left" for="email">Email</label>
+        <label class=" p-2 flex-grow text-left" for="observation">Observation</label>
+        <label class=" p-2 flex-grow text-left" for="url">Lien URL</label>
+        <label class=" p-2 flex-grow text-left" for="niveau">Niveau</label>
+        <label class=" p-2 flex-grow text-left" for="spec">Specialité</label>
       </div>
 
 
-<div class="flex flex-col space-y-5">
+<div class="flex flex-col space-y-2.5">
         <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="nomEntreprise"
           v-model="entreprise.raisonSociale"
         />
 
         <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="nomContact"
           v-model="entreprise.nomContact"
         />
 
         <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="resp"
           v-model="entreprise.nomResp"
         />
 
         <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="rue"
           v-model="entreprise.rueEntreprise"
@@ -61,35 +60,35 @@
 
 
         <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="codePostal"
           v-model="entreprise.cpEntreprise"
         />
 
         <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="ville"
           v-model="entreprise.villeEntreprise"
         />
 
                 <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="tel"
           v-model="entreprise.telEntreprise"
         />
 
         <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="fax"
           v-model="entreprise.faxEntreprise"
         />
 
         <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="email"
           v-model="entreprise.email"
@@ -97,35 +96,35 @@
 
 
         <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="observation"
           v-model="entreprise.observation"
         />
 
         <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="url"
           v-model="entreprise.siteEntreprise"
         />
 
                 <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="niveau"
           v-model="entreprise.niveau"
         />
 
         <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="spec"
           v-model="entreprise.spec"
         />
       </div>
     </form>
-    <button class="text-gray-500 border-2 p-4 border-gray-500 rounded transition hover:bg-gray-500 hover:text-white"  @click="modifierEntreprise">Modifier</button>
+    <button class="text-gray-900 font-bold border-2 px-10 py-2.5 border-gray-800 rounded transition hover:bg-gray-900 hover:text-white ease-in-out"  @click="modifierEntreprise">Modifier</button>
   </div>
 </template>
 
