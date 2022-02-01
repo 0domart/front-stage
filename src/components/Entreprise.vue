@@ -94,7 +94,7 @@
                 </svg>
               </a>
 
-              <a @click="modifierEntreprise(entreprise.num_entreprise)" class="cursor-pointer">
+              <a>
                 <svg
                   id="Layer_1"
                   data-name="Layer 1"
@@ -109,6 +109,7 @@
                 </svg>
               </a>
 
+              <a v-if="isProfesseur" class="p-2 border-red-500 border-2 cursor-pointer" @click="modifierEntreprise(entreprise.num_entreprise)">
               <a
                 v-if="isProfesseur"
                 class="p-2"
