@@ -1,7 +1,7 @@
 <template>
   <div class="p-10">
-    <div class="flex justify-start items-center space-x-5">
-      <div class="relative flex items-center">
+    <div class="flex space-x-5">
+      <div class="flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
@@ -20,6 +20,7 @@
           type="text"
           v-model="keyword"
           class="
+          w-96
             p-3
             pl-10
             bg-white
@@ -32,7 +33,7 @@
         />
       </div>
 
-      <div class="relative flex items-center">
+      <div class="">
         <Button
           @click="creerEtudiant()"
           class="
@@ -44,7 +45,7 @@
             hover:bg-gray-800 hover:text-white hover:border-gray-800
             focus:border-white
           "
-          >Ajouter une stagiaire</Button
+          >Ajouter un stagiaire</Button
         >
       </div>
     </div>

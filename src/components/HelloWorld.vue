@@ -1,7 +1,9 @@
 <template>
-<div class="h-full flex justify-center items-center">
-    <h1>Stage BTS - </h1><br>
-    <h2>Bienvenue sur la page de gestion des stages</h2>
+<div class="h-full flex flex-col justify-center items-center">
+  <div class="border-4 border-gray-800 p-4 rounded">
+    <h1 class="text-6xl font-bold">Stage BTS</h1>
+    <h2 class="text-2xl">Bienvenue sur la page de gestion des stages</h2>
+  </div>
 </div>
 </template>
 
