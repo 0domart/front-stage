@@ -133,10 +133,7 @@ export default {
   },
   computed: {
     filteredList() {
-      return this.stages.filter((samsung) => {
-        console.log(samsung);
-        return samsung.numEtudiant.toString().includes(this.keyword);
-      });
+      return this.stages;
     }
   },
 
@@ -158,51 +155,8 @@ export default {
         );
 
         this.stages = response.data;
-        this.stages.forEach(async a => {
-          a.etudiant = await this.getEtudiant(a.numEtudiant);
-          a.prof = await this.getProf(a.numProf);
-          a.entreprise = await this.getEntreprise(a.numEntreprise);
-        });
-        console.log(this.stages);
       } catch (error) {
         console.log(error);
-      }
-    },
-    async getEtudiant(id) {
-      try {
-        const response = await axios.get(
-          "http://localhost:8080/stage/etudiant/" + id
-        );
-
-        return response.data;
-      } catch (error) {
-        console.log(error);
-        return {};
-      }
-    },
-
-    async getEntreprise(id) {
-      try {
-        const response = await axios.get(
-          "http://localhost:8080/stage/entreprise/" + id
-        );
-
-        return response.data;
-      } catch (error) {
-        console.log(error);
-        return {};
-      }
-    },
-
-    async getProf(id) {
-      try {
-        const response = await axios.get(
-          "http://localhost:8080/stage/professeur/" + id
-        );
-        return response.data;
-      } catch (error) {
-        console.log(error);
-        return {};
       }
     },
   },

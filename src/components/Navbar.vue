@@ -4,7 +4,7 @@
       <router-link to="/entreprise">Entreprise</router-link> 
       <router-link to="/stagiaire">Stagiaire</router-link>
       <router-link to="/aide" v-show="connected">Aide</router-link>
-      <router-link to="/register" v-show="!connected">Inscription</router-link>
+      <router-link to="/register" v-show="connected">Inscription</router-link>
       <router-link to="/login" v-show="!connected">Connexion</router-link>
       <router-link to="/login" @click="hh" v-show="connected">Deconnexion</router-link>
   </nav>
@@ -31,6 +31,12 @@ export default {
     }
   },
   created(){
+    if(localStorage.statut == "etudiant" || localStorage.statut == "professeur"){
+        this.connected = true;
+      }
+      else {
+        this.connected = false;
+      }
     window.addEventListener('oh', (event) => {
       console.log('change');
       console.log(event);

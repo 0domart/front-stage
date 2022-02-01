@@ -7,6 +7,7 @@ import Entreprise from '../components/Entreprise.vue'
 import EntrepriseDescription from '../components/EntrepriseDescription.vue'
 import Aide from '../components/Aide.vue'
 import Login from '../components/Login.vue'
+import Inscription from '../components/Inscription.vue'
 
 const routes = [
   {
@@ -61,6 +62,14 @@ const routes = [
     path: '/creerEtudiant',
     name: 'CreerEtudiant',
     component: CreerEtudiant,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/register',
+    name: 'Inscription',
+    component: Inscription,
     meta: {
       requiresAuth: true
     }
