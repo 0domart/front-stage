@@ -13,12 +13,20 @@
 
     <form class="bg-gray-100 border-2 border-gray-900 rounded-xl flex space-x-10 p-10">
       <div class="flex flex-col space-y-5">
-        <label class="p-3 flex-grow text-left" for="nomEtudiant">Nom de l'entreprise</label>
-        <label class=" p-3 flex-grow text-left" for="prenomEtudiant">Nom du contact</label>
-        <label class=" p-3 flex-grow text-left" for="login">Nom d'utilisateur</label>
-        <label class=" p-3 flex-grow text-left" for="password">Mot de passe</label>
-        <label class=" p-3 flex-grow text-left" for="dateObtention">Date d'obtention du BTS (JJ-MM-AAAA)</label>
-        <label class=" p-3 flex-grow text-left" for="classe">Classe</label>
+        <label class="p-3 flex-grow text-left" for="nomEntreprise">Nom de l'entreprise</label>
+        <label class=" p-3 flex-grow text-left" for="nomContact">Nom du contact</label>
+        <label class=" p-3 flex-grow text-left" for="resp">Nom du responsable</label>
+        <label class=" p-3 flex-grow text-left" for="rue">Rue</label>
+        <label class=" p-3 flex-grow text-left" for="codePostal">Code postal</label>
+        <label class=" p-3 flex-grow text-left" for="ville">Ville</label>
+        
+        <label class="p-3 flex-grow text-left" for="tel">Téléphone</label>
+        <label class=" p-3 flex-grow text-left" for="fax">Fax</label>
+        <label class=" p-3 flex-grow text-left" for="email">Email</label>
+        <label class=" p-3 flex-grow text-left" for="observation">Observation</label>
+        <label class=" p-3 flex-grow text-left" for="url">url</label>
+        <label class=" p-3 flex-grow text-left" for="niveau">Niveau</label>
+        <label class=" p-3 flex-grow text-left" for="spec">Specialité</label>
       </div>
 
 

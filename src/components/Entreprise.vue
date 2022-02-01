@@ -94,7 +94,7 @@
                 </svg>
               </a>
 
-              <a @click="modifierEntreprise(entreprise.num_entreprise)" class="cursor-pointer">
+              <a>
                 <svg
                   id="Layer_1"
                   data-name="Layer 1"
@@ -109,7 +109,7 @@
                 </svg>
               </a>
 
-              <a v-if="isProfesseur" class="p-2 border-red-500 border-2" href="#">
+              <a v-if="isProfesseur" class="p-2 border-red-500 border-2 cursor-pointer" @click="modifierEntreprise(entreprise.num_entreprise)">
                 <svg
                   id="Layer_1"
                   data-name="Layer 1"
@@ -218,8 +218,6 @@ export default {
     },
     redirectWebsite(url){
       window.open(url, '_blank');
-    redirectWebsite(url) {
-      window.open(url, "_blank");
     },
     descriptionEntreprise(id) {
       this.$router.push("/entreprise/" + id);
