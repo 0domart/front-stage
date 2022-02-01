@@ -108,12 +108,12 @@
                   />
                 </svg>
               </a>
-
-              <a v-if="isProfesseur" class="p-2 border-red-500 border-2 cursor-pointer" @click="modifierEntreprise(entreprise.num_entreprise)">
+              
               <a
                 v-if="isProfesseur"
                 class="p-2"
                 href="#"
+                @click="modifierEntreprise(entreprise.num_entreprise)"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
