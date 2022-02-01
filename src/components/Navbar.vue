@@ -1,10 +1,10 @@
 <template>
-  <nav class="flex flex-col justify-around text-2xl font-bold text-white">
+  <nav class="flex flex-col justify-evenly text-2xl font-bold text-white">
       <router-link class="p-10 hover:bg-gray-600 transition"  to="/">Accueil</router-link>
       <router-link class="p-10 hover:bg-gray-600 transition" to="/entreprise">Entreprise</router-link> 
       <router-link class="p-10 hover:bg-gray-600 transition" to="/stagiaire">Stagiaire</router-link>
       <router-link class="p-10 hover:bg-gray-600 transition" to="/aide" v-show="connected">Aide</router-link>
-      <router-link class="p-10 hover:bg-gray-600 transition" to="/register" v-show="!connected">Inscription</router-link>
+      <router-link class="p-10 hover:bg-gray-600 transition" to="/register" v-show="connected">Inscription</router-link>
       <router-link class="p-10 hover:bg-gray-600 transition" to="/login" v-show="!connected">Connexion</router-link>
       <router-link class="p-10 hover:bg-gray-600 transition" to="/login" @click="hh" v-show="connected">Deconnexion</router-link>
   </nav>
@@ -31,6 +31,12 @@ export default {
     }
   },
   created(){
+    if(localStorage.statut == "etudiant" || localStorage.statut == "professeur"){
+        this.connected = true;
+      }
+      else {
+        this.connected = false;
+      }
     window.addEventListener('oh', (event) => {
       console.log('change');
       console.log(event);
