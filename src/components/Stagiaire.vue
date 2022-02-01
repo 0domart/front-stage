@@ -69,7 +69,7 @@
         >
           <td class="">
             <div class="flex justify-around items-center">
-              <a @click="descriptionEtudiant(stage.numEtudiant)" class="cursor-pointer">
+              <a @click="descriptionEtudiant(stage.etudiant.num_etudiant)" class="cursor-pointer">
                 <svg
                   version="1.1"
                   id="Layer_1"
