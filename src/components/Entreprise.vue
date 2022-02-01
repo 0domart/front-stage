@@ -226,8 +226,6 @@ export default {
     },
     redirectWebsite(url){
       window.open(url, '_blank');
-    redirectWebsite(url) {
-      window.open(url, "_blank");
     },
     descriptionEntreprise(id) {
       this.$router.push("/entreprise/" + id);
