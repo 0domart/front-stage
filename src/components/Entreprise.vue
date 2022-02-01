@@ -94,7 +94,7 @@
                 </svg>
               </a>
 
-              <a>
+              <a @click="redirectInscription" class="cursor-pointer">
                 <svg
                   id="Layer_1"
                   data-name="Layer 1"
@@ -111,7 +111,7 @@
               
               <a
                 v-if="isProfesseur"
-                class="p-2"
+                class="p-2 cursor-pointer"
                 href="#"
                 @click="modifierEntreprise(entreprise.num_entreprise)"
               >
@@ -129,7 +129,7 @@
 
               <a
                 v-if="isProfesseur"
-                class="p-2"
+                class="p-2 cursor-pointer"
                 @click="supprimerEntreprise(entreprise.num_entreprise)"
               >
                 <svg
@@ -228,6 +228,9 @@ export default {
     redirectWebsite(url){
       window.open(url, '_blank');
     },
+    redirectInscription(){
+      this.$router.push("/register/");
+    },
     descriptionEntreprise(id) {
       this.$router.push("/entreprise/" + id);
     },
@@ -237,6 +240,7 @@ export default {
         
         await this.getEntreprises();
     },
+    
     async getEntreprises() {
       try {
         const response = await axios.get(
