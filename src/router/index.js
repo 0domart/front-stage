@@ -5,6 +5,7 @@ import EtudiantDescription from '../components/EtudiantDescription.vue'
 import CreerEtudiant from '../components/CreerEtudiant.vue'
 import Entreprise from '../components/Entreprise.vue'
 import EntrepriseDescription from '../components/EntrepriseDescription.vue'
+import EntrepriseModification from '../components/EntrepriseModification.vue'
 import Aide from '../components/Aide.vue'
 import Login from '../components/Login.vue'
 import Inscription from '../components/Inscription.vue'
@@ -22,6 +23,14 @@ const routes = [
     path: '/entreprise',
     name: 'Entreprise',
     component: Entreprise,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/entreprise-modification/:id',
+    name: 'EntrepriseModification',
+    component: EntrepriseModification,
     meta: {
       requiresAuth: true
     }

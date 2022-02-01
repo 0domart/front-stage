@@ -43,6 +43,7 @@
             hover:bg-gray-800 hover:text-white hover:border-gray-800
             focus:border-white
           "
+          @click="ajouterEntreprise()"
           >Ajouter une entreprise</Button
         >
       </div>
@@ -93,7 +94,7 @@
                 </svg>
               </a>
 
-              <a href="#">
+              <a @click="modifierEntreprise(entreprise.num_entreprise)" class="cursor-pointer">
                 <svg
                   id="Layer_1"
                   data-name="Layer 1"
@@ -217,6 +218,14 @@ export default {
   },
 
   methods: {
+    ajouterEntreprise(){
+      this.$router.push("/entreprise-creation/");
+    },
+    modifierEntreprise(id){
+      this.$router.push("/entreprise-modification/" + id);
+    },
+    redirectWebsite(url){
+      window.open(url, '_blank');
     redirectWebsite(url) {
       window.open(url, "_blank");
     },
