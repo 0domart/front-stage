@@ -118,7 +118,10 @@ export default {
   },
   computed: {
     filteredList() {
-      return this.stages;
+      return this.stages.filter((samsung) => {
+        console.log(samsung);
+        return samsung.etudiant.nomEtudiant.toLowerCase().includes(this.keyword.toLowerCase()) || samsung.etudiant.prenomEtudiant.toLowerCase().includes(this.keyword.toLowerCase());
+      });
     }
   },
 
