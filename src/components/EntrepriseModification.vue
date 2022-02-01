@@ -34,54 +34,98 @@
         <input
           class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
-          id="nomEtudiant"
-          v-model="nomEtudiant"
-          placeholder="{{etudiant.nomEtudiant}}"
-        />
-
-        
-        <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
-          type="text"
-          id="prenomEtudiant"
-          v-model="nomEtudiant"
-          placeholder="{{etudiant.nomEtudiant}}"
+          id="nomEntreprise"
+          v-model="entreprise.raisonSociale"
         />
 
         <input
           class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
-          id="login"
-          v-model="nomEtudiant"
-          placeholder="{{etudiant.nomEtudiant}}"
+          id="nomContact"
+          v-model="entreprise.nomContact"
         />
 
         <input
           class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
-          id="password"
-          v-model="nomEtudiant"
-          placeholder="{{etudiant.nomEtudiant}}"
-        />
-
-
-        <input
-          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
-          type="date"
-          id="dateObtention"
-          v-model="nomEtudiant"
-          placeholder="{{etudiant.nomEtudiant}}"
+          id="resp"
+          v-model="entreprise.nomResp"
         />
 
         <input
           class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
-          id="classe"
-          v-model="nomEtudiant"
-          placeholder="{{etudiant.nomEtudiant}}"
+          id="rue"
+          v-model="entreprise.rueEntreprise"
         />
-</div>
+
+
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="codePostal"
+          v-model="entreprise.cpEntreprise"
+        />
+
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="ville"
+          v-model="entreprise.villeEntreprise"
+        />
+
+                <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="tel"
+          v-model="entreprise.telEntreprise"
+        />
+
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="fax"
+          v-model="entreprise.faxEntreprise"
+        />
+
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="email"
+          v-model="entreprise.email"
+        />
+
+
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="observation"
+          v-model="entreprise.observation"
+        />
+
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="url"
+          v-model="entreprise.siteEntreprise"
+        />
+
+                <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="niveau"
+          v-model="entreprise.niveau"
+        />
+
+        <input
+          class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
+          type="text"
+          id="spec"
+          v-model="entreprise.spec"
+        />
+      </div>
     </form>
+    <button class="text-gray-500 border-2 p-4 border-gray-500 rounded transition hover:bg-gray-500 hover:text-white"  @click="modifierEntreprise">Modifier</button>
   </div>
 </template>
 
@@ -93,31 +137,38 @@ export default {
 
   data() {
     return {
-      etudiant: [],
-      nomEtudiant: "",
-      prenomEtudiant: "",
-      username: "",
-      classe: "",
-      dateObtention: "",
+      entreprise: [],
     };
   },
 
   created() {
-    this.getEtudiant();
+    this.getEntreprise();
   },
 
   methods: {
-    async getEtudiant() {
+    async getEntreprise() {
       try {
         const id = this.$route.params.id;
         const response = await axios.get(
-          "http://localhost:8080/stage/etudiant/" + id
+          "http://localhost:8080/stage/entreprise/" + id
         );
         console.log(response.data);
-        this.etudiant = response.data;
+        this.entreprise = response.data;
       } catch (error) {
         console.log(error);
       }
+    },
+     async modifierEntreprise(){
+      try {
+        await axios.put("http://localhost:8080/stage/entreprise/" + this.entreprise.num_entreprise, this.entreprise);
+        this.error = false;
+        this.$router.push("/entreprise");
+      }
+      catch (error) {
+        this.error = true;
+        console.log(error);
+      }
+
     },
   },
 };
