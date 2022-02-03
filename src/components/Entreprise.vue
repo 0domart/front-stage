@@ -25,8 +25,10 @@
             bg-white
             rounded
             border-2 border-gray-300
-            transition
             hover:border-gray-800
+            focus:w-96
+            transition-width
+            ease-in-out
           "
           placeholder="Rechercher une entreprise"
         />
@@ -51,6 +53,28 @@
 
     <hr class="m-6" />
 
+    <div
+      v-if="this.validation"
+      class="w-full relative py-2.5 rounded-xl font-bold bg-green-200 flex justify-center items-center"
+    >
+      <h1>Les informations de l'entreptise ont bien été modifiées</h1>
+      <button @click="this.validation=false" class="absolute right-3 bg-red-400 transition hover:bg-red-600 ease-in-out text-white border-2 p-1 rounded-full flex items-center justify-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+      </button>
+    </div>
     <table class="table-fixed mt-2 text-black">
       <thead class="">
         <tr>
@@ -64,7 +88,7 @@
       </thead>
       <tbody class="">
         <tr
-          class="border-2 transition hover:bg-blue-100 rounded border-gray-800"
+          class="border-2 transition hover:bg-gray-200 rounded border-green-600"
           v-for="entreprise in filteredList"
           v-bind:key="entreprise.num_entreprise"
         >
@@ -72,7 +96,18 @@
             <div class="flex justify-around items-center space-x-3 m-3">
               <a
                 @click="descriptionEntreprise(entreprise.num_entreprise)"
-                class="cursor-pointer"
+                class="
+                  m-1
+                  p-1
+                  bg-white
+                  cursor-pointer
+                  border-2 border-green-300
+                  rounded-xl
+                  hover:bg-green-300
+                  transition
+                  ease-in-out
+                  hover:text-white hover:border-green-900
+                "
               >
                 <svg
                   version="1.1"
@@ -84,7 +119,7 @@
                   viewBox="0 0 122.88 83.78"
                   style="enable-background: new 0 0 122.88 83.78"
                   xml:space="preserve"
-                  class="rounded w-8"
+                  class="w-6 h-6"
                 >
                   <g>
                     <path
@@ -94,13 +129,27 @@
                 </svg>
               </a>
 
-              <a @click="redirectInscription" class="cursor-pointer">
+              <a
+                @click="redirectInscription"
+                class="
+                  m-1
+                  p-1
+                  bg-white
+                  cursor-pointer
+                  border-2 border-blue-300
+                  rounded-xl
+                  hover:bg-blue-300
+                  transition
+                  ease-in-out
+                  hover:text-white hover:border-blue-900
+                "
+              >
                 <svg
                   id="Layer_1"
                   data-name="Layer 1"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 122.88 67.72"
-                  class="w-8"
+                  class="w-6 h-6"
                 >
                   <path
                     class="cls-1"
@@ -108,10 +157,21 @@
                   />
                 </svg>
               </a>
-              
+
               <a
                 v-if="isProfesseur"
-                class="p-2 cursor-pointer"
+                class="
+                  m-1
+                  p-1
+                  cursor-pointer
+                  border-2 border-yellow-300
+                  bg-white
+                  rounded-xl
+                  hover:bg-yellow-300
+                  transition
+                  ease-in-out
+                  hover:text-white hover:border-yellow-400
+                "
                 href="#"
                 @click="modifierEntreprise(entreprise.num_entreprise)"
               >
@@ -129,7 +189,18 @@
 
               <a
                 v-if="isProfesseur"
-                class="p-2 cursor-pointer"
+                class="
+                  m-1
+                  p-1
+                  cursor-pointer
+                  border-2 border-red-300
+                  bg-white
+                  rounded-xl
+                  hover:bg-red-600
+                  transition
+                  ease-in-out
+                  hover:text-white hover:border-red-900
+                "
                 @click="supprimerEntreprise(entreprise.num_entreprise)"
               >
                 <svg
@@ -199,6 +270,7 @@ export default {
       keyword: "",
       entreprises: [],
       isProfesseur: false,
+      validation: false,
     };
   },
   computed: {
@@ -214,33 +286,35 @@ export default {
 
   created() {
     this.isProfesseur = localStorage.getItem("statut") === "professeur";
-    console.log(this.isProfesseur);
     this.getEntreprises();
   },
 
+  mounted() {
+    this.validation = this.$route.params.validation;
+  },
+
   methods: {
-    ajouterEntreprise(){
+    ajouterEntreprise() {
       this.$router.push("/entreprise-creation/");
     },
-    modifierEntreprise(id){
+    modifierEntreprise(id) {
       this.$router.push("/entreprise-modification/" + id);
     },
-    redirectWebsite(url){
-      window.open(url, '_blank');
+    redirectWebsite(url) {
+      window.open(url, "_blank");
     },
-    redirectInscription(){
+    redirectInscription() {
       this.$router.push("/register/");
     },
     descriptionEntreprise(id) {
       this.$router.push("/entreprise/" + id);
     },
-    async supprimerEntreprise(id){
-        await axios.delete(
-          "http://localhost:8080/stage/entreprise/" + id);
-        
-        await this.getEntreprises();
+    async supprimerEntreprise(id) {
+      await axios.delete("http://localhost:8080/stage/entreprise/" + id);
+
+      await this.getEntreprises();
     },
-    
+
     async getEntreprises() {
       try {
         const response = await axios.get(
@@ -255,21 +329,3 @@ export default {
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

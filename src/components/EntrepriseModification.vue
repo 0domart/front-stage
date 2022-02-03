@@ -116,15 +116,14 @@
           v-model="entreprise.niveau"
         />
 
-        <input
-          class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
-          type="text"
-          id="spec"
-          v-model="entreprise.spec"
-        />
+      <ul class=" p-2 bg-white flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800">
+        <li v-for="specialite in entreprise.specialite" :key="specialite.num_classe">
+          {{specialite.libelle}}
+        </li>
+      </ul>
       </div>
     </form>
-    <button class="text-gray-900 font-bold border-2 px-10 py-2.5 border-gray-800 rounded transition hover:bg-gray-900 hover:text-white ease-in-out"  @click="modifierEntreprise">Modifier</button>
+    <button class="text-gray-900 bg-yellow-300 font-bold border-2 px-10 py-2.5 border-gray-800 rounded transition hover:bg-gray-900 hover:text-white ease-in-out"  @click="modifierEntreprise">Modifier</button>
   </div>
 </template>
 
@@ -153,6 +152,8 @@ export default {
         );
         console.log(response.data);
         this.entreprise = response.data;
+
+        console.log(this.entreprise);
       } catch (error) {
         console.log(error);
       }
@@ -161,7 +162,10 @@ export default {
       try {
         await axios.put("http://localhost:8080/stage/entreprise/" + this.entreprise.num_entreprise, this.entreprise);
         this.error = false;
-        this.$router.push("/entreprise");
+        this.$router.push({
+          name: 'Entreprise',
+          params: { validation: true }
+        });
       }
       catch (error) {
         this.error = true;

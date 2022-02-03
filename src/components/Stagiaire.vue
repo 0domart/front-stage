@@ -20,7 +20,7 @@
           type="text"
           v-model="keyword"
           class="
-          w-96
+            w-96
             p-3
             pl-10
             bg-white
@@ -29,7 +29,7 @@
             transition
             hover:border-gray-800
           "
-          placeholder="Rechercher un etudiant existant"
+          placeholder="Rechercher un stagiaire existant"
         />
       </div>
 
@@ -63,13 +63,27 @@
       </thead>
       <tbody>
         <tr
-          class="border-2 transition hover:bg-blue-100 rounded border-gray-800"
+          class="border-2 transition hover:bg-gray-200 rounded border-gray-800"
           v-for="stage in filteredList"
           v-bind:key="stage.numStage"
         >
           <td>
-            <div class="flex justify-around items-center">
-              <a @click="descriptionEtudiant(stage.etudiant.num_etudiant)" class="cursor-pointer">
+            <div class="flex justify-evenly items-center">
+              <a
+                @click="descriptionEtudiant(stage.etudiant.num_etudiant)"
+                class="
+                  m-1
+                  p-1
+                  bg-white
+                  cursor-pointer
+                  border-2 border-green-300
+                  rounded-xl
+                  hover:bg-green-300
+                  transition
+                  ease-in-out
+                  hover:text-white hover:border-green-900
+                "
+              >
                 <svg
                   version="1.1"
                   id="Layer_1"
@@ -80,7 +94,7 @@
                   viewBox="0 0 122.88 83.78"
                   style="enable-background: new 0 0 122.88 83.78"
                   xml:space="preserve"
-                  class="rounded w-8"
+                  class="w-6 h-6"
                 >
                   <g>
                     <path
@@ -89,9 +103,72 @@
                   </g>
                 </svg>
               </a>
+
+              <a
+                v-if="isProfesseur"
+                class="
+                  m-1
+                  p-1
+                  cursor-pointer
+                  border-2 border-yellow-300
+                  bg-white
+                  rounded-xl
+                  hover:bg-yellow-300
+                  transition
+                  ease-in-out
+                  hover:text-white hover:border-yellow-400
+                "
+                href="#"
+                @click="modifierEntreprise(entreprise.num_entreprise)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                v-if="isProfesseur"
+                class="
+                  m-1
+                  p-1
+                  cursor-pointer
+                  border-2 border-red-300
+                  bg-white
+                  rounded-xl
+                  hover:bg-red-600
+                  transition
+                  ease-in-out
+                  hover:text-white hover:border-red-900
+                "
+                @click="supprimerEntreprise(entreprise.num_entreprise)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="black"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </a>
             </div>
           </td>
-          <td>{{ stage.etudiant.nomEtudiant }} {{ stage.etudiant.prenomEtudiant}}</td>
+          <td>
+            {{ stage.etudiant.nomEtudiant }} {{ stage.etudiant.prenomEtudiant }}
+          </td>
           <td>{{ stage.entreprise.raisonSociale }}</td>
           <td>{{ stage.prof.nomProf }} {{ stage.prof.prenomProf }}</td>
         </tr>
@@ -108,32 +185,40 @@ export default {
 
   data() {
     return {
-      keyword: '',
+      keyword: "",
       stages: [],
+      isProfesseur: false,
     };
   },
 
   created() {
+    this.isProfesseur = localStorage.getItem("statut") === "professeur";
     this.getStagiaires();
   },
   computed: {
     filteredList() {
       return this.stages.filter((samsung) => {
         console.log(samsung);
-        return samsung.etudiant.nomEtudiant.toLowerCase().includes(this.keyword.toLowerCase()) || samsung.etudiant.prenomEtudiant.toLowerCase().includes(this.keyword.toLowerCase());
+        return (
+          samsung.etudiant.nomEtudiant
+            .toLowerCase()
+            .includes(this.keyword.toLowerCase()) ||
+          samsung.etudiant.prenomEtudiant
+            .toLowerCase()
+            .includes(this.keyword.toLowerCase())
+        );
       });
-    }
+    },
   },
 
-
   methods: {
-    redirectWebsite(url){
-      window.open(url, '_blank');
+    redirectWebsite(url) {
+      window.open(url, "_blank");
     },
-    descriptionEtudiant(id){
+    descriptionEtudiant(id) {
       this.$router.push("/etudiant/" + id);
     },
-    creerEtudiant(){
+    creerEtudiant() {
       this.$router.push("/creerEtudiant");
     },
     async getStagiaires() {
@@ -150,21 +235,3 @@ export default {
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

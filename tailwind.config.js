@@ -1,7 +1,14 @@
 module.exports = {
     content: [],
     theme: {
-      extend: {},
+      extend: {
+        transitionProperty: {
+          'width' : 'width'
+        },
+      },
     },
     plugins: [],
+    variants: {
+      width: ["responsive", "hover", "focus"]
+  }
   }

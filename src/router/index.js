@@ -22,7 +22,8 @@ const routes = [
     component: Entreprise,
     meta: {
       requiresAuth: true
-    }
+    },
+    props: true
   },
   {
     path: '/entreprise-modification/:id',
@@ -54,7 +55,8 @@ const routes = [
     component: Stagiaire,
     meta: {
       requiresAuth: true
-    }
+    },
+    props: true
   },
   {
     path: '/etudiant/:id',

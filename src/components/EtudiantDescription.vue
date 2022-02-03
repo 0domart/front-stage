@@ -50,9 +50,10 @@
           placeholder="Entrez un login"
         />
 
-        <p
+        <p v-if="this.etudiant.anneeObtention"
           class=" p-3 flex-grow rounded border-2 border-gray-400"
         >{{this.etudiant.anneeObtention}}</p>
+        <p v-else class=" p-3 flex-grow rounded border-2 border-gray-400">Pas obtenu</p>
 
         <p
           class=" p-3 flex-grow rounded border-2 border-gray-400"
