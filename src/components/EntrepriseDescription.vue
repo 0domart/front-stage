@@ -35,16 +35,6 @@
         <p>Email: {{ entreprise.email }}</p>
       </div>
     </div>
-
-    <div></div>
-
-    <div>
-      <h2 class="text-2xl font-bold py-2">Stage</h2>
-    </div>
-
-    <p>opération</p>
-    <p>Etudiant</p>
-    <p>projet</p>
   </div>
 </template>
 

@@ -15,9 +15,6 @@ const routes = [
     path: '/',
     name: 'Home',
     component: HelloWorld,
-    meta: {
-      requiresAuth: true
-    }
   },
   {
     path: '/entreprise',
