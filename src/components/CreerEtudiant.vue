@@ -11,7 +11,7 @@
     <h1 class="text-3xl font-bold">Informations concernant l'étudiant</h1>
 
 <form>
-  <div class="bg-gray-100 border-2 border-gray-900 rounded-xl flex space-x-10 p-10">
+  <div class="bg-green-300 border-2 border-green-600 rounded-xl flex space-x-10 p-10 shadow-xl">
       <div class="flex flex-col space-y-5">
         <label class="p-3 flex-grow text-left" for="nomEtudiant">Nom</label>
         <label class=" p-3 flex-grow text-left" for="prenomEtudiant">Prénom</label>
@@ -73,7 +73,7 @@
         />
 </div>
   </div>
-          <button class="text-gray-900 font-bold border-2 px-10 py-2.5 my-6 border-gray-800 rounded transition hover:bg-gray-900 hover:text-white ease-in-out"  @click="creerEtudiant">Ajouter</button>
+          <button class="text-gray-900 bg-green-100 font-bold border-2 px-10 py-2.5 my-6 border-gray-800 rounded transition hover:bg-gray-900 hover:text-white ease-in-out"  @click="creerEtudiant">Ajouter</button>
 
     </form>
   </div>

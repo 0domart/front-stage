@@ -10,7 +10,7 @@
   >
     <h1 class="text-3xl font-bold">Modification de l'entreprise</h1>
 
-    <form class="bg-yellow-100 border-2 border-gray-900 rounded-xl flex space-x-5 p-16 shadow-xl">
+    <form class="bg-green-100 border-2 border-gray-900 rounded-xl flex space-x-5 p-16 shadow-xl">
       <div class="flex flex-col">
         <label class="p-2 flex-grow text-left" for="nomEntreprise">Nom de l'entreprise</label>
         <label class=" p-2 flex-grow text-left" for="nomContact">Nom du contact</label>
