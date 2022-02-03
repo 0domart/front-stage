@@ -7,6 +7,7 @@ import Entreprise from '../components/Entreprise.vue'
 import EntrepriseDescription from '../components/EntrepriseDescription.vue'
 import EntrepriseModification from '../components/EntrepriseModification.vue'
 import EtudiantModification from '../components/EtudiantModification.vue'
+import EntrepriseCreation from '../components/EntrepriseCreation.vue'
 import Aide from '../components/Aide.vue'
 import Login from '../components/Login.vue'
 import Inscription from '../components/Inscription.vue'
@@ -30,6 +31,14 @@ const routes = [
     path: '/entreprise-modification/:id',
     name: 'EntrepriseModification',
     component: EntrepriseModification,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/entreprise-creation',
+    name: 'EntrepriseCreation',
+    component: EntrepriseCreation,
     meta: {
       requiresAuth: true
     }

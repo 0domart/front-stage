@@ -45,7 +45,7 @@
             hover:bg-gray-800 hover:text-white hover:border-gray-800
             focus:border-white
           "
-          @click="ajouterEntreprise()"
+          @click="creationEntreprise()"
           >Ajouter une entreprise</Button
         >
       </div>
@@ -318,11 +318,11 @@ export default {
   },
 
   methods: {
-    ajouterEntreprise() {
-      this.$router.push("/entreprise-creation/");
-    },
     modifierEntreprise(id) {
       this.$router.push("/entreprise-modification/" + id);
+    },
+    creationEntreprise() {
+      this.$router.push("/entreprise-creation");
     },
     redirectWebsite(url) {
       window.open(url, "_blank");
