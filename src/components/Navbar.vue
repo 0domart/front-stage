@@ -1,6 +1,6 @@
 <template>
   <nav class="flex flex-col justify-evenly text-2xl font-bold text-white">
-      <router-link class="p-10 hover:bg-gray-600 transition"  to="/">Accueil</router-link>
+      <router-link class="p-10 hover:bg-gray-600 transition" to="/">Accueil</router-link>
       <router-link class="p-10 hover:bg-gray-600 transition" to="/entreprise">Entreprise</router-link> 
       <router-link class="p-10 hover:bg-gray-600 transition" to="/stagiaire">Stagiaire</router-link>
       <router-link class="p-10 hover:bg-gray-600 transition" to="/aide" v-show="connected">Aide</router-link>
@@ -31,6 +31,7 @@ export default {
     }
   },
   created(){
+    this.routeName = this.$route.name;
     if(localStorage.statut == "etudiant" || localStorage.statut == "professeur"){
         this.connected = true;
       }
@@ -38,8 +39,8 @@ export default {
         this.connected = false;
       }
     window.addEventListener('oh', (event) => {
-      console.log('change');
       console.log(event);
+      console.log("CHANGEMENT");
       if(event.detail.storage == "etudiant" || event.detail.storage == "professeur"){
         this.connected = true;
       }
@@ -50,7 +51,3 @@ export default {
   }
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
