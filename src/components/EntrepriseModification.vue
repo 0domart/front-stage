@@ -109,7 +109,7 @@
           v-model="entreprise.siteEntreprise"
         />
 
-                <input
+        <input
           class=" p-2 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
           type="text"
           id="niveau"

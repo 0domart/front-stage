@@ -119,7 +119,7 @@
                   hover:text-white hover:border-yellow-400
                 "
                 href="#"
-                @click="modifierEntreprise(entreprise.num_entreprise)"
+                @click="modifierEtudiant(stage.etudiant.num_etudiant)"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +147,7 @@
                   ease-in-out
                   hover:text-white hover:border-red-900
                 "
-                @click="supprimerEntreprise(entreprise.num_entreprise)"
+                @click="supprimerStagiaire(stage.etudiant.num_etudiant)"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -218,6 +218,9 @@ export default {
     descriptionEtudiant(id) {
       this.$router.push("/etudiant/" + id);
     },
+    modifierEtudiant(id) {
+      this.$router.push("/etudiant-modification/" + id);
+    },
     creerEtudiant() {
       this.$router.push("/creerEtudiant");
     },
@@ -232,6 +235,12 @@ export default {
         console.log(error);
       }
     },
+    async supprimerStagiaire(id) {
+      await axios.delete("http://localhost:8080/stage/etudiant/" + id);
+
+      await this.getStagiaires();
+    },
+
   },
 };
 </script>
