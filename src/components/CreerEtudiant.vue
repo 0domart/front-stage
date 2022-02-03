@@ -9,6 +9,9 @@
     "
   >
     <h1 class="text-3xl font-bold">Informations concernant l'étudiant</h1>
+        <h3 v-show="error" class="cursor-pointer border-2 border-red-500 bg-red-200 rounded-xl p-2">
+      L'inscription a echoué, merci de remplir tous les champs obligatoires
+    </h3>
 
 <form>
   <div class="bg-green-300 border-2 border-green-600 rounded-xl flex space-x-10 p-10 shadow-xl">
@@ -88,6 +91,7 @@ export default {
   data() {
     return {
       etudiant: {},
+      error:false,
     };
   },
 
@@ -98,8 +102,10 @@ export default {
      async creerEtudiant(){
       try {
         await axios.post("http://localhost:8080/stage/etudiant/", this.etudiant);
+        this.error = false;
       }
-      catch (error) {
+      catch (error) {        
+        this.error = true;
         console.log(error);
       }
     },
