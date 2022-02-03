@@ -6,6 +6,7 @@ import CreerEtudiant from '../components/CreerEtudiant.vue'
 import Entreprise from '../components/Entreprise.vue'
 import EntrepriseDescription from '../components/EntrepriseDescription.vue'
 import EntrepriseModification from '../components/EntrepriseModification.vue'
+import EtudiantModification from '../components/EtudiantModification.vue'
 import Aide from '../components/Aide.vue'
 import Login from '../components/Login.vue'
 import Inscription from '../components/Inscription.vue'
@@ -57,6 +58,14 @@ const routes = [
       requiresAuth: true
     },
     props: true
+  },
+  {
+    path: '/etudiant-modification/:id',
+    name: 'EtudiantModification',
+    component: EtudiantModification,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/etudiant/:id',
