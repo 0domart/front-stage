@@ -66,26 +66,28 @@
 
         <input
           class=" p-3 flex-grow rounded border-2 border-gray-400 transition hover:border-gray-800"
-          type="text"
+          type="number"
           id="classe"
           v-model="this.etudiant.numClasse"
-          placeholder="Entrez un numéro de classe"
+          placeholder="Numéro de classe"
         />
 </div>
   </div>
-  <input class="py-3 px-16 rounded-full m-5 font-bold cursor-pointer bg-gray-100 border-2 border-gray-900 hover:border-4 hover:text-white hover:bg-gray-900 duration-200 ease-in-out focus:ring-2" type="submit" value="Ajouter">
+          <button class="text-gray-900 font-bold border-2 px-10 py-2.5 my-6 border-gray-800 rounded transition hover:bg-gray-900 hover:text-white ease-in-out"  @click="creerEtudiant">Ajouter</button>
+
     </form>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 
 export default {
   name: "EtudiantDescription",
 
   data() {
     return {
-      etudiant: [],
+      etudiant: {},
     };
   },
 
@@ -93,7 +95,14 @@ export default {
   },
 
   methods: {
-
+     async creerEtudiant(){
+      try {
+        await axios.post("http://localhost:8080/stage/etudiant/", this.etudiant);
+      }
+      catch (error) {
+        console.log(error);
+      }
+    },
   },
 };
 </script>
