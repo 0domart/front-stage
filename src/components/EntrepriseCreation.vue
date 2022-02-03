@@ -1,7 +1,7 @@
 <template>
   <div class="p-10 flex flex-col justify-center items-center space-y-5 h-full">
-    <h3 v-show="error" @click="error=null" class="cursor-pointer border-2 border-red-500 bg-red-200 rounded-xl p-2">
-      L'inscription a echoué, merci de contacter le support
+    <h3 v-show="error" @click="error=false" class="cursor-pointer border-2 border-red-500 bg-red-200 rounded-xl p-2">
+      L'inscription a echoué, merci de remplir tous les champs obligatoires
     </h3>
     <div class="shadow-xl bg-green-300 rounded-xl p-8 flex flex-col">
       <h1 class="font-bold text-2xl">Création d'une nouvelle entreprise</h1>
@@ -99,6 +99,7 @@ export default {
   name: "EntrepriseCreation",
   data() {
     return {
+      error: false,
       entreprise: {},
     };
   },
