@@ -164,7 +164,7 @@ export default {
         this.error = false;
         this.$router.push({
           name: 'Entreprise',
-          params: { validation: true }
+          params: { validation: "1" }
         });
       }
       catch (error) {

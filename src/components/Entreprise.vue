@@ -54,11 +54,35 @@
     <hr class="m-6" />
 
     <div
-      v-if="this.validation"
+      v-if="this.validation==='1'"
       class="w-full relative py-2.5 rounded-xl font-bold bg-green-200 flex justify-center items-center"
     >
-      <h1>Les informations de l'entreptise ont bien été modifiées</h1>
-      <button @click="this.validation=false" class="absolute right-3 bg-red-400 transition hover:bg-red-600 ease-in-out text-white border-2 p-1 rounded-full flex items-center justify-center">
+    
+      <h1>Les informations de l'entreprise ont bien été modifiées</h1>
+      <button @click="this.validation=null" class="absolute right-3 bg-red-400 transition hover:bg-red-600 ease-in-out text-white border-2 p-1 rounded-full flex items-center justify-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+      </button>
+    </div>
+    <div
+      v-else-if="this.validation==='0'"
+      class="w-full relative py-2.5 rounded-xl font-bold bg-red-200 flex justify-center items-center"
+    >
+    
+      <h1>Un problème est survenu, veuillez réessayer</h1>
+      <button @click="this.validation=null" class="absolute right-3 bg-red-400 transition hover:bg-red-600 ease-in-out text-white border-2 p-1 rounded-full flex items-center justify-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-6 w-6"
@@ -270,7 +294,7 @@ export default {
       keyword: "",
       entreprises: [],
       isProfesseur: false,
-      validation: false,
+      validation: null,
     };
   },
   computed: {
@@ -310,9 +334,13 @@ export default {
       this.$router.push("/entreprise/" + id);
     },
     async supprimerEntreprise(id) {
+      try {
       await axios.delete("http://localhost:8080/stage/entreprise/" + id);
-
       await this.getEntreprises();
+      this.$router.params.validation = "1";
+      } catch (error) {
+        console.log(error)
+      }
     },
 
     async getEntreprises() {
